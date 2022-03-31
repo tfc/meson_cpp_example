@@ -3,7 +3,7 @@ project('b', 'cpp',
   default_options : ['warning_level=3', 'cpp_std=c++14'])
 
 inc = include_directories('include')
-b = library('libb',
+b = library('b',
            'main.cpp',
            include_directories : inc,
            install : true)

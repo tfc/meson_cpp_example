@@ -8,9 +8,8 @@ rec {
   lib = rec {
     a = stdenv.mkDerivation {
       name = "liba";
-      buildInputs = [ c d ];
+      propagatedBuildInputs = [ ac ad ];
       nativeBuildInputs = [ meson ninja pkg-config ];
-      propagatedBuildInputs = [ c d ]; # TODO: can we make this implicit, by concatnating to a's pkgconfig?
       src = ./a;
       outputs = [ "out" "dev" ];
     };
@@ -21,16 +20,16 @@ rec {
       src = ./b;
     };
 
-    c = stdenv.mkDerivation {
-      name = "libc";
+    ac = stdenv.mkDerivation {
+      name = "libac";
       nativeBuildInputs = [ meson ninja cmake ];
-      src = ./c;
+      src = ./ac;
     };
 
-    d = stdenv.mkDerivation {
-      name = "libd";
+    ad = stdenv.mkDerivation {
+      name = "libad";
       nativeBuildInputs = [ meson ninja ];
-      src = ./d;
+      src = ./ad;
     };
   };
 

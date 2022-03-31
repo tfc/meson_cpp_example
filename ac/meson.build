@@ -1,9 +1,9 @@
-project('c', 'cpp',
+project('ac', 'cpp',
   version : '0.1',
   default_options : ['warning_level=3', 'cpp_std=c++14'])
 
 inc = include_directories('include')
-c = library('libc',
+ac = library('ac',
            'main.cpp',
            include_directories : inc,
            install : true)
@@ -11,4 +11,4 @@ c = library('libc',
 install_headers('include/c.hpp')
 
 pkg = import('pkgconfig')
-pkg.generate(c)
+pkg.generate(ac)

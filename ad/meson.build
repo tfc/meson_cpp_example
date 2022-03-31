@@ -1,9 +1,9 @@
-project('d', 'cpp',
+project('ad', 'cpp',
   version : '0.1',
   default_options : ['warning_level=3', 'cpp_std=c++14'])
 
 inc = include_directories('include')
-d = library('libd',
+ad = library('ad',
            'main.cpp',
            include_directories : inc,
            install : true)
@@ -11,4 +11,4 @@ d = library('libd',
 install_headers('include/d.hpp')
 
 pkg = import('pkgconfig')
-pkg.generate(d)
+pkg.generate(ad)
