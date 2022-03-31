@@ -2,11 +2,11 @@ project('myapp', 'cpp',
   version : '0.1',
   default_options : ['warning_level=3', 'cpp_std=c++14'])
 
-liba_dep = dependency('a')
-libb_dep = dependency('b')
+a = dependency('liba')
+b = dependency('libb')
 
-libc = executable('MyApp',
+c = executable('MyApp',
            'main.cpp',
-           dependencies: [ liba_dep, libb_dep ],
+           dependencies: [ a,b ],
            install : true)
 

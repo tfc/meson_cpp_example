@@ -10,7 +10,9 @@ rec {
       name = "liba";
       buildInputs = [ c d ];
       nativeBuildInputs = [ meson ninja pkg-config ];
+      propagatedBuildInputs = [ c d ]; # TODO: can we make this implicit, by concatnating to a's pkgconfig?
       src = ./a;
+      outputs = [ "out" "dev" ];
     };
 
     b = stdenv.mkDerivation {
@@ -32,10 +34,10 @@ rec {
     };
   };
 
-  myapp = stdenv.mkDerivation {
+  app = stdenv.mkDerivation {
     name = "myapp";
-    buildInputs = with lib; [ a b c d ];
-    nativeBuildInputs = [ meson ninja pkg-config ];
+    buildInputs = with lib; [ a b ];
+    nativeBuildInputs = [ pkgs.breakpointHook meson ninja pkg-config ];
     src = ./app;
   };
 }
